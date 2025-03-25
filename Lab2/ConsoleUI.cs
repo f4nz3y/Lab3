@@ -8,15 +8,15 @@ namespace Lab2
 {
     class ConsoleUI
     {
-        private readonly GameManager gameManager;
+        private readonly GameManager _gameManager;
+        private readonly GameLogger _logger;
 
         public ConsoleUI()
         {
-            gameManager = new GameManager();
-            // Підписка на події
-            gameManager.GameStarted += OnGameStarted;
-            gameManager.GameStopped += OnGameStopped;
-            gameManager.GameSaved += OnGameSaved;
+            _gameManager = new GameManager();
+            _logger = new GameLogger();
+            // Підписки
+            _logger.Subscribe(_gameManager.Notifier);
         }
 
         public void Run()
@@ -39,7 +39,7 @@ namespace Lab2
             int gpu = ReadInt("Вiдеокарта (GB): ");
             int hdd = ReadInt("Вiльне мiсце на HDD (GB): ");
 
-            gameManager.InitializePC(cpu, ram, gpu, hdd, hasInternet, hasWheel);
+            _gameManager.InitializePC(cpu, ram, gpu, hdd, hasInternet, hasWheel);
         }
 
         private void MainMenu()
@@ -94,7 +94,7 @@ namespace Lab2
             Console.Write("Оберiть жанр гри (1 - Стратегiя, 2 - Симулятор): ");
             string genre = Console.ReadLine().Trim() == "1" ? "Стратегiя" : "Симулятор";
 
-            if (gameManager.InstallGame(genre))
+            if (_gameManager.InstallGame(genre))
             {
                 Console.WriteLine($"{genre} встановлено.");
             }
@@ -106,7 +106,7 @@ namespace Lab2
 
         private void StartGame()
         {
-            if (gameManager.IsGameRunning())
+            if (_gameManager.IsGameRunning())
             {
                 Console.WriteLine("Спочатку зупинiть поточну гру!");
                 return;
@@ -115,7 +115,7 @@ namespace Lab2
             ShowInstalledGames();
             int gameIndex = ReadInt("Оберiть номер гри для запуску: ") - 1;
 
-            if (gameManager.StartGame(gameIndex))
+            if (_gameManager.StartGame(gameIndex))
             {
                 // Повідомлення про запуск гри буде виведено через подію
             }
@@ -127,7 +127,7 @@ namespace Lab2
 
         private void StopGame()
         {
-            if (gameManager.StopGame())
+            if (_gameManager.StopGame())
             {
                 // Повідомлення про зупинку гри буде виведено через подію
             }
@@ -142,7 +142,7 @@ namespace Lab2
             ShowInstalledGames();
             int gameIndex = ReadInt("Оберiть номер гри для видалення: ") - 1;
 
-            if (gameManager.UninstallGame(gameIndex))
+            if (_gameManager.UninstallGame(gameIndex))
             {
                 Console.WriteLine("Гра видалена.");
             }
@@ -154,7 +154,7 @@ namespace Lab2
 
         private void SaveGame()
         {
-            if (gameManager.SaveGame())
+            if (_gameManager.SaveGame())
             {
                 // Повідомлення про збереження гри буде виведено через подію
             }
@@ -166,7 +166,7 @@ namespace Lab2
 
         private void LoadGame()
         {
-            if (gameManager.LoadGame())
+            if (_gameManager.LoadGame())
             {
                 Console.WriteLine("Гра завантажена.");
             }
@@ -178,8 +178,8 @@ namespace Lab2
 
         private void ShowInstalledGames()
         {
-            var games = gameManager.GetInstalledGames();
-            Console.WriteLine($"Встановленi iгри (Вiльне мiсце: {gameManager.GetFreeHDD()} GB):");
+            var games = _gameManager.GetInstalledGames();
+            Console.WriteLine($"Встановленi iгри (Вiльне мiсце: {_gameManager.GetFreeHDD()} GB):");
             for (int i = 0; i < games.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. {games[i].Genre} (ID: {games[i].Id})");
@@ -196,26 +196,6 @@ namespace Lab2
         {
             Console.Write(message);
             return double.TryParse(Console.ReadLine(), out double result) ? result : 0;
-        }
-
-        // Обробники подій
-        private void OnGameStarted(object sender, GameEventArgs e)
-        {
-            Console.WriteLine($"Гра {e.GameName} запущена.");
-            if (e.IsSimulator && gameManager.HasWheel())
-            {
-                Console.WriteLine("Кермо пiдключено.");
-            }
-        }
-
-        private void OnGameStopped(object sender, GameEventArgs e)
-        {
-            Console.WriteLine($"Гра {e.GameName} зупинена.");
-        }
-
-        private void OnGameSaved(object sender, GameEventArgs e)
-        {
-            Console.WriteLine($"Гра {e.GameName} збережена.");
         }
     }
 }

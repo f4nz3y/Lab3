@@ -3,7 +3,7 @@
   <Class Name="Lab2.ConsoleUI" Collapsed="true">
     <Position X="12" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAgEIBQAAAAABRQgAAwAAAAAAAAAAEAAAAAAAM=</HashCode>
+      <HashCode>AAAAAAAgCIBQAAAAAAQQgAAwIAAAAAAAAAEAAAAAAAM=</HashCode>
       <FileName>ConsoleUI.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -36,13 +36,6 @@
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Lab2.GameEventArgs" Collapsed="true">
-    <Position X="9.75" Y="1" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAgAAAAAAA=</HashCode>
-      <FileName>GameEventArgs.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Lab2.GameFactory" Collapsed="true">
     <Position X="12" Y="1.75" Width="1.5" />
     <TypeIdentifier>
@@ -53,7 +46,7 @@
   <Class Name="Lab2.GameManager" Collapsed="true">
     <Position X="12" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAgAAAAAIDQAAAQAAQABAAgAEAAAIAAAwEAAEAAAAM=</HashCode>
+      <HashCode>gAAAAAAAAIDQAAAgAAQABAAkAEAAAoAAAwEAAEAAAAM=</HashCode>
       <FileName>GameManager.cs</FileName>
     </TypeIdentifier>
   </Class>

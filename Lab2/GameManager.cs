@@ -14,10 +14,8 @@ namespace Lab2
         private IGame ?runningGame = null;
         private int gameIdCounter = 1;
 
-        // Події
-        public event EventHandler<GameEventArgs> ?GameStarted;
-        public event EventHandler<GameEventArgs> ?GameStopped;
-        public event EventHandler<GameEventArgs> ?GameSaved;
+        private readonly GameEventNotifier _notifier = new GameEventNotifier();
+        public GameEventNotifier Notifier => _notifier;
 
         public void InitializePC(double cpu, int ram, int gpu, int hdd, bool hasInternet, bool hasWheel)
         {
@@ -69,7 +67,7 @@ namespace Lab2
 
             runningGame = selectedGame;
             // Виклик події GameStarted
-            GameStarted?.Invoke(this, new GameEventArgs(selectedGame.Genre, selectedGame is Simulator));
+            _notifier.OnGameStarted(selectedGame.Genre, selectedGame is Simulator);
             return true;
         }
 
@@ -83,7 +81,7 @@ namespace Lab2
             var stoppedGame = runningGame;
             runningGame = null;
             // Виклик події GameStopped
-            GameStopped?.Invoke(this, new GameEventArgs(stoppedGame.Genre, stoppedGame is Simulator));
+            _notifier.OnGameStopped(stoppedGame.Genre);
             return true;
         }
 
@@ -116,7 +114,7 @@ namespace Lab2
 
             savedGames[runningGame.Id] = $"{runningGame.Genre} - збережено";
             // Виклик події GameSaved
-            GameSaved?.Invoke(this, new GameEventArgs(runningGame.Genre, runningGame is Simulator));
+            _notifier.OnGameSaved(runningGame.Genre);
             return true;
         }
 
