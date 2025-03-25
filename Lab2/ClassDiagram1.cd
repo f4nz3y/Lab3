@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Lab2.ConsoleUI" Collapsed="true">
+    <Position X="12" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAgEIBQAAAAABRQgAAwAAAAAAAAAAEAAAAAAAM=</HashCode>
+      <FileName>ConsoleUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab2.Game" Collapsed="true">
+    <Position X="7.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAAAAIAAAIAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Lab2.Strategy" Collapsed="true">
+    <Position X="7.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab2.Simulator" Collapsed="true">
+    <Position X="5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab2.OnlineCasino" Collapsed="true">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <InheritanceLine Type="Lab2.Game" FixedFromPoint="true">
+      <Path>
+        <Point X="8" Y="2.062" />
+        <Point X="8" Y="2.26" />
+        <Point X="10.5" Y="2.26" />
+        <Point X="10.5" Y="2.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab2.GameEventArgs" Collapsed="true">
+    <Position X="9.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAgAAAAAAA=</HashCode>
+      <FileName>GameEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab2.GameFactory" Collapsed="true">
+    <Position X="12" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab2.GameManager" Collapsed="true">
+    <Position X="12" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAgAAAAAIDQAAAQAAQABAAgAEAAAIAAAwEAAEAAAAM=</HashCode>
+      <FileName>GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab2.PC" Collapsed="true">
+    <Position X="12" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAQgAAAAAAAACIAAAAAAAAAwAAAAAAAAA=</HashCode>
+      <FileName>PC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab2.Program" Collapsed="true">
+    <Position X="5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Lab2.IGame" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAAAAIAAAIAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>IGame.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
