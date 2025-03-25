@@ -31,14 +31,6 @@
   </Class>
   <Class Name="Lab2.OnlineCasino" Collapsed="true">
     <Position X="9.75" Y="2.5" Width="1.5" />
-    <InheritanceLine Type="Lab2.Game" FixedFromPoint="true">
-      <Path>
-        <Point X="8" Y="2.062" />
-        <Point X="8" Y="2.26" />
-        <Point X="10.5" Y="2.26" />
-        <Point X="10.5" Y="2.5" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Game.cs</FileName>

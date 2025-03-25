@@ -7,19 +7,39 @@ using System.Threading.Tasks;
 namespace Lab2
 {
     // Фабрика для створення ігор
+
+    abstract class GameCreator
+    {
+        public abstract IGame CreateGame(int id);
+    }
+
+    class StrategyCreator : GameCreator
+    {
+        public override IGame CreateGame(int id)
+        {
+            return new Strategy(id);
+        }
+    }
+
+    class SimulatorCreator : GameCreator
+    {
+        public override IGame CreateGame(int id)
+        {
+            return new Simulator(id);
+        }
+    }
+
     static class GameFactory
     {
         public static IGame? CreateGame(string genre, int id)
         {
-            switch (genre)
+            GameCreator? creator = genre switch
             {
-                case "Стратегiя":
-                    return new Strategy(id);
-                case "Симулятор":
-                    return new Simulator(id);
-                default:
-                    return null;
-            }
+                "Стратегiя" => new StrategyCreator(),
+                "Симулятор" => new SimulatorCreator(),
+                _ => null
+            };
+            return creator?.CreateGame(id);
         }
     }
 }
