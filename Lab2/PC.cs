@@ -31,4 +31,21 @@ namespace Lab2
             return CPU >= game.RequiredCPU && RAM >= game.RequiredRAM && GPU >= game.RequiredGPU;
         }
     }
+
+    abstract class PCDecorator : PC
+    {
+        protected PC _decoratedPC;
+
+        public PCDecorator(PC pc) : base(pc.CPU, pc.RAM, pc.GPU, pc.HDD, pc.HasInternet, pc.HasWheel)
+        {
+            _decoratedPC = pc;
+        }
+    }
+
+    class OverclockedPC : PCDecorator
+    {
+        public OverclockedPC(PC pc) : base(pc) { }
+
+        public new double CPU => _decoratedPC.CPU * 1.2; // Збільшуємо частоту процесора на 20%
+    }
 }

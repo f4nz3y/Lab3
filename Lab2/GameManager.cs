@@ -130,6 +130,15 @@ namespace Lab2
             return savedGames.ContainsKey(runningGame.Id);
         }
 
+        public void OverclockPC()
+        {
+            if (userPC != null)
+            {
+                userPC = new OverclockedPC(userPC);
+                Console.WriteLine("ПК розгiняно! Процесор покращено на 20%.");
+            }
+        }
+
         public List<IGame> GetInstalledGames()
         {
             return installedGames;
